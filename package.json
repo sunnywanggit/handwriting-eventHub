@@ -1,0 +1,8 @@
+{
+  "name": "EventHub",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sunnywanggit/handwriting-eventHub.git",
+  "author": "ergouwang <330035385@qq.com>",
+  "license": "MIT"
+}
