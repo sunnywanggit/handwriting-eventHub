@@ -20,14 +20,8 @@ function test2(message) {
         console.assert(data === '我是emit的第二个参数');
     });
     eventHub.emit('xxx', '我是emit的第二个参数');
-
-    setTimeout(()=>{
-        console.log('我执行了');
-        console.assert(called === true)
-    },1000)
+    console.assert(called);
 }
-
-
 
 
 function test3(message) {
@@ -44,15 +38,12 @@ function test3(message) {
     eventHub.off('yyy', fn2);
     eventHub.emit('yyy');
 
-    setTimeout(()=>{
-        console.log('我没有执行');
-        console.assert(called === false)
-    },1000)
+    console.assert(called === false);
 }
 
 
 /*
-* 你这个只接受一个参数，我要传两个参数怎么办？直接传一个数组就好了
+* 面试官：你这个只接受一个参数，我要传两个参数怎么办？直接传一个数组就好了
 *
 * 你故意留一个你能解决的坑给他问
 *
