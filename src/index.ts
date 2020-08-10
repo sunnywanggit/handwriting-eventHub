@@ -18,7 +18,8 @@ class EventHub {
         把 fn 推进 this.cache[eventName] 数组
         如果没有事件存在，我们初始化一下
          */
-        (this.cache[eventName] || []).push(fn);
+        this.cache[eventName] = this.cache[eventName] || [];
+        this.cache[eventName].push(fn);
     }
 
     //发布
@@ -39,6 +40,11 @@ class EventHub {
 
 export default EventHub;
 
+/**
+ * 帮助函数
+ * @param array
+ * @param item
+ */
 function indexOf(array, item) {
     if (array === undefined) {
         return -1;
