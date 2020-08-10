@@ -4,13 +4,14 @@ test1('eventHub 是一个对象');
 test2('eventHub 有 on 和 emit 属性');
 test3('eventHub 可以取消事件订阅');
 
-function test1(message) {
+
+function test1(message:string) {
     const eventHub = new EventHub();
     console.log(message);
     console.assert(eventHub instanceof Object,);
 }
 
-function test2(message) {
+function test2(message:string) {
     const eventHub = new EventHub();
     console.log(message);
     //必须要先订阅再发布，如果你先发布再订阅就有可能没病订阅上
@@ -24,7 +25,7 @@ function test2(message) {
 }
 
 
-function test3(message) {
+function test3(message:string) {
     console.log(message);
     const eventHub = new EventHub();
 
