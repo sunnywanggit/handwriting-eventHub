@@ -31,20 +31,25 @@ class EventHub {
     //取消订阅
     off(eventName: string, fn: (data: unknown) => void) {
         // 把 fn 从 this.cache[eventName] 数组里面中删除
-        this.cache[eventName] = this.cache[eventName] || [];
-        //用 index 来记住你要取消订阅的事件
-        let index = undefined;
-        for (let i = 0; i < this.cache[eventName].length; i++) {
-            if (this.cache[eventName][i] === fn) {
-                index = i;
-                break;
-            }
-        }
-
-        if (index === undefined) return;
+        let index = indexOf(this.cache[eventName], fn);
+        if (index === -1) return;
         this.cache[eventName].splice(index, 1);
     }
 }
 
 export default EventHub;
+
+function indexOf(array, item) {
+    if (array === undefined) {
+        return -1;
+    }
+    let index = -1;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === item) {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
 
